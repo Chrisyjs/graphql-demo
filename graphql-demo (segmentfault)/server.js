@@ -26,3 +26,6 @@ app.use(router.routes())
 app.listen(port);
 
 console.log('GraphQL-demo server listen port: ' + port)
+
+
+
