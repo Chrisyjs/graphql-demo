@@ -95,8 +95,10 @@ window.onload = function () {
           }`
         },
         success: function(res) {
-          console.log(res);
-          $('#btn2').trigger('click');
+          const item = res.data.updateStudent;
+          $('#studentList>li').eq(0).html('姓名：'+item.name+'，性别：'+item.sex+'，年龄：'+item.age);
+          // console.log(res);
+          // $('#btn2').trigger('click');
         }
       })
     })
