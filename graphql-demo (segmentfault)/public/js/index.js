@@ -88,6 +88,7 @@ window.onload = function () {
               age: 14
             ) {
               _id
+              sex
               name 
               age
             }

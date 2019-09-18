@@ -90,6 +90,9 @@ import {
           },
           age: {
             type: GraphQLInt
+          },
+          sex: {
+            type: GraphQLString
           }
         }
       }),
@@ -111,21 +114,16 @@ import {
           type: InfoType
         } */
       },
-      resolve: async (root, params, options) => {
-        let temp = await Student.updateOne(params, (err, result) => {
+      resolve: (root, params, options) => {
+        let temp = Student.updateOne(params, (err, result) => {
           if (err) throw err
           return;
         }).then(() => {
-          Student.findOne(params, (err, result) => {
-            return(result);
-          })
+          return Student.findOne(params, (err, result) => {
+            return (result);
+          });
         })
-        return {
-          _id: params._id,
-          name: params.name,
-          age: params.age
-        };
-        // return temp;
+        return temp;
       }
     }
   }
